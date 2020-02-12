@@ -22,7 +22,7 @@ RUN yum -y install mariadb-server mariadb-client
 RUN yum -y install epel-release yum-utils
 RUN yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN yum -y --enablerepo=remi,remi-php73 install nginx php-fpm php-common
-RUN yum -y --enablerepo=remi,remi-php73 install php-cli php-pear php-pdo php-mysqlnd php-pgsql php-gd php-mbstring php-mcrypt php-xml
+RUN yum -y --enablerepo=remi,remi-php73 install php-cli php-pear php-pdo php-mysqlnd php-pgsql php-gd php-mbstring php-mcrypt php-xml php-intl
 
 # Installing supervisor
 RUN yum install -y python-setuptools
@@ -62,9 +62,6 @@ ADD etc/supervisord.conf /etc/
 
 # Adding the default file
 ADD www /var/www
-#ADD index.php /var/www/index.php
-#ADD ajax.php /var/www/ajax.php
-#ADD ajax.js /var/www/ajax.js
 
 # Add volumes for MySQL
 VOLUME  ["/etc/mysql", "/var/lib/mysql" ]
