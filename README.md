@@ -3,7 +3,7 @@ Original repo:https://github.com/kaushalkishorejaiswal/Docker-Centos-LEMP <br>
 Forked by Fuseteam <br>
 Email: fusekai@outlook.com <br>
 
-<h2>Dockerfile for creating docker image for LAMP (Linux-Centos, Nginx, MySQL, PHP)</h2>
+<h2>Dockerfile for creating docker image for LEMP (Linux-Centos, Nginx, MariaDB, PHP)</h2>
 
 <h4>Steps for creating image from the Docker-LEMP:</h4>
 
