@@ -1,6 +1,7 @@
 Created by Kaushal Kishore <br>
-Email : kaushal.rahuljaiswal@gmail.com<br>
-Website : http://www.kaushalkishore.com<br>
+Original repo:https://github.com/kaushalkishorejaiswal/Docker-Centos-LEMP
+Forked by Fuseteam
+Email: fusekai@outlook.com
 
 <h2>Dockerfile for creating docker image for LAMP (Linux-Centos, Nginx, MySQL, PHP)</h2>
 
@@ -9,7 +10,7 @@ Website : http://www.kaushalkishore.com<br>
 <b>Step 1 :</b> Clone the Docker-Centos-LEMP.git
 <pre>
 <b>Command: </b>
-git clone https://github.com/kaushalkishorejaiswal/Docker-Centos-LEMP.git
+git clone https://github.com/fuseteam/Docker-Centos-LEMP.git
 </pre>
 
 <b>Step 2 :</b> Change the directory to the clone folder
@@ -31,7 +32,7 @@ sudo docker build -t ##NAME_OF_YOUR_DOCKER_IMAGE## .
   c). . : (.) Symbols shows that your Dockerfile is available on the same directory where you are running the command.
 </pre>
 
-<b>Step 4 :</b> Create an Nginx,PHP,MySQL Installed Container from the image
+<b>Step 4 :</b> Create an Nginx,PHP,MariaDB Installed Container from the image
 <b>Command Syntax: </b>
 sudo docker run --name [container name] -p [port to access (New Port):port exposed(original port)] -i -t [image name]
 <pre>
@@ -86,10 +87,3 @@ sudo docker run --name ##NAME_OF_YOUR_DOCKER_CONTAINER## -d -p 8082:80 -v ##HOST
 <b>Command Example:</b>
 sudo docker run --name nginx_ins -d -p 8082:80 -v /var/www/kaushal:/var/www nginx_kaushal
 </pre>
-
-<b>Related Projects</b>
-<ul>
-  <li>Docker-Nginx : https://github.com/kaushalkishorejaiswal/Docker-Centos-Nginx </li>
-  <li>Docker-NginxPHP : https://github.com/kaushalkishorejaiswal/Docker-Centos-Nginx </li>
-  <li>Docker-MySQL :  https://github.com/kaushalkishorejaiswal/Docker-MySQL </li>
-</ul>
