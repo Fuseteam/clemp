@@ -49,7 +49,7 @@ http://127.0.0.1:8082/
 <b>Step 6 :</b> You can access your MariaDB using the below command.
 <pre>
 <b>Command:</b>
-mysql -uroot -proot -h172.17.42.1 -P3037
+mysql -uroot -proot -h172.17.42.1
 </pre>
 <b>Important Notes</b>
 <ul>
