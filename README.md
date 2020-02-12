@@ -1,7 +1,7 @@
 Created by Kaushal Kishore <br>
-Original repo:https://github.com/kaushalkishorejaiswal/Docker-Centos-LEMP
-Forked by Fuseteam
-Email: fusekai@outlook.com
+Original repo:https://github.com/kaushalkishorejaiswal/Docker-Centos-LEMP <br>
+Forked by Fuseteam <br>
+Email: fusekai@outlook.com <br>
 
 <h2>Dockerfile for creating docker image for LAMP (Linux-Centos, Nginx, MySQL, PHP)</h2>
 
