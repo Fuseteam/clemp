@@ -76,8 +76,28 @@ mysql -uroot -proot -h172.17.42.1
 </ul>
 
 <h4>Additional Notes:</h4>
+docker images are used to create containers any changes to a container
+exists as long as the container is running changes in a container can
+be preserved by creating a new image from the container many
+containers can be created from one image
+ 
+changes made in a container can be 'saved' by creating an image from
+that container with the following command
+<b>Command Syntax:</b>
+docker commit -m "<changes you made>" <container-name>
+</pre>
+
+<pre>
+<b>Command Example:</b>
+docker commit -m "changed mysql to mariadb" webapp
+</pre>
+ 
+database changes are not saved this way
+To persist database changes use docker volumes
+
 <b>Command for attaching the volume of your hosted machine:</b>
 <pre>
+
 <b>Command Syntax:</b>
 sudo docker run --name ##NAME_OF_YOUR_DOCKER_CONTAINER## -d -p 8082:80 -v ##HOSTED_VOLUME_LOCATION##:##CONTAINER_VOLUME_LOCATION## ##YOUR_IMAGE_NAME##
 </pre>
@@ -85,4 +105,15 @@ sudo docker run --name ##NAME_OF_YOUR_DOCKER_CONTAINER## -d -p 8082:80 -v ##HOST
 <pre>
 <b>Command Example:</b>
 sudo docker run --name nginx_ins -d -p 8082:80 -v /var/www/kaushal:/var/www nginx_kaushal
+</pre>
+
+shell access to a container can be gained with the following command
+<pre>docker exec -it <container-name> bash<pre>
+ 
+containers can be stopped with the following command
+<pre>docker stop <container-name></pre>
+ 
+stopped containers can be started again with the following command
+<pre>
+docker start <container-name>ginx_ins -d -p 8082:80 -v /var/www/kaushal:/var/www nginx_kaushal
 </pre>
