@@ -104,7 +104,7 @@ sudo docker run --name ##NAME_OF_YOUR_DOCKER_CONTAINER## -d -p 8082:80 -v ##HOST
 
 <pre>
 <b>Command Example:</b>
-sudo docker run --name nginx_ins -d -p 8082:80 -v /var/www/kaushal:/var/www nginx_kaushal
+sudo docker run --name nginx_ins -d -p 8082:80 -v /home/mysqldata:/var/lib/mysql nginx_kaushal
 </pre>
 
 shell access to a container can be gained with the following command
