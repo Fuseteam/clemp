@@ -108,12 +108,10 @@ sudo docker run --name nginx_ins -d -p 8082:80 -v /var/www/kaushal:/var/www ngin
 </pre>
 
 shell access to a container can be gained with the following command
-<pre>docker exec -it <container-name> bash<pre>
+<pre>docker exec -it <container-name> bash</pre>
  
 containers can be stopped with the following command
 <pre>docker stop <container-name></pre>
  
 stopped containers can be started again with the following command
-<pre>
-docker start <container-name>ginx_ins -d -p 8082:80 -v /var/www/kaushal:/var/www nginx_kaushal
-</pre>
+<pre>docker start <container-name></pre>
