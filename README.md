@@ -104,8 +104,10 @@ sudo docker run --name ##NAME_OF_YOUR_DOCKER_CONTAINER## -d -p 8082:80 -v ##HOST
 
 <pre>
 <b>Command Example:</b>
-sudo docker run --name nginx_ins -d -p 8082:80 -v /home/mysqldata:/var/lib/mysql nginx_kaushal
+sudo docker run --name nginx_ins -d -p 8082:80 -v /home/mysqldata:/var/lib/mysql clemp
 </pre>
+
+any container that needs to make use of the same database should specify the database password via the PASSWORD enviroment variable
 
 shell access to a container can be gained with the following command
 <pre>docker exec -it ##container-name bash</pre>
