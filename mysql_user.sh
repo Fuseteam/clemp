@@ -8,13 +8,21 @@ RET=1
 while [[ RET -ne 0 ]]; do
     echo "=> Waiting for confirmation of MySQL service startup"
     sleep 10
-    mysql -uroot -e "status" > /dev/null 2>&1
+    mysql -uroot -p${PASSWORD} -e "status" > /dev/null 2>&1
     RET=$?
 done
-
+if [ -z ${PASSWORD+x} ]; then
 mysql -uroot -e "UPDATE mysql.user SET password=PASSWORD('${MYSQL_ROOT_PASS}') WHERE User='root'"
-mysql -uroot -e "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASS}'"
-mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'%' WITH GRANT OPTION"
+fi
+if [ -z ${PASSWORD+x} ]; then
+mysql -uroot -e "CREATE USER 'root'@'gateway' IDENTIFIED BY '${MYSQL_ROOT_PASS}'"
+fi
+if [ -z ${PASSWORD+x} ]; then
+mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'gateway' WITH GRANT OPTION"
+fi
 
-echo "MySQL User : ${MYSQL_USER} and MySQL Password : ${MYSQL_PASS}"
-mysqladmin -uroot shutdown
+if [ -z ${PASSWORD+x} ]; then
+	mysqladmin -uroot shutdown
+else
+	mysqladmin -uroot -p${PASSWORD} shutdown
+fi
