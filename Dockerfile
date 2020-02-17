@@ -31,8 +31,6 @@ RUN easy_install pip
 RUN pip install supervisor
 
 # Enviroment variable for setting the Username and Password of MySQL
-ENV MYSQL_USER user
-ENV MYSQL_PASS user
 ENV MYSQL_ROOT_PASS root
 
 # Adding the configuration file of the nginx
