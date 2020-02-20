@@ -107,7 +107,7 @@ sudo docker run --name ##NAME_OF_YOUR_DOCKER_CONTAINER## -d -p 8082:80 -v ##HOST
 sudo docker run --name nginx_ins -d -p 8082:80 -v /home/mysqldata:/var/lib/mysql clemp
 </pre>
 
-any container that needs to make use of the same database should specify the database password via the PASSWORD enviroment variable, the container_run script makes it easier to do so. The docker volume can be sit anywhere including a different machine than the container runs on. See [docker documentation](https://docs.docker.com/storage/volumes/#use-a-volume-driver) for details
+any container that needs to make use of the same database should specify the database password via the PASSWORD enviroment variable, the container_run script makes it easier to do so. The docker volume can be sit anywhere including a different machine than the container runs on. See [docker documentation](https://docs.docker.com/storage/volumes/#use-a-volume-driver) for details. Additionally when moving the data directory the directory permissions should be preserved, otherwise subquentent databases will not be able to access it. The correct permissions can be verified after the first data directory is created with <pre>ls -l</pre>
 
 shell access to a container can be gained with the following command
 <pre>docker exec -it ##container-name bash</pre>
