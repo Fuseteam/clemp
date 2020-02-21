@@ -2,5 +2,7 @@
 # Executing supervisord and mysql_user
 # Author : Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
 
-/mysql_user.sh
+if [ -z ${PASSWORD+x} ]; then
+	/mysql_user.sh
+fi
 exec supervisord -n -c /etc/supervisord.conf
