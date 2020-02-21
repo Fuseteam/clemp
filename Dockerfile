@@ -62,7 +62,7 @@ ADD etc/supervisord.conf /etc/
 ADD www /var/www
 
 # Add volumes for MySQL
-VOLUME  ["/etc/mysql", "/var/lib/mysql" ]
+VOLUME  [ "/var/lib/mysql" ]
 
 # Set the port to 80
 EXPOSE 80 3306
