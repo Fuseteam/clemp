@@ -27,13 +27,13 @@ function print_usage() {
 
 while getopts 'h:d:v:V:n:pi:' flag; do
 	case "${flag}" in
-		h) httpport="-p${OPTARG}:80";;
-		d) dbport="-p${OPTARG}:3306";;
-		v) datavol="-v${OPTARG}:/var/lib/mysql";;
+		h) portflag=true;httpport="-p80${OPTARG}:80";dbport="-p33${OPTARG}:3306";;
+		v) volflag=true;voldir=${PWD}/${OPTARG%/};nginxvol="-v$voldir:/var/www";datavol="-v$voldir-data:/var/lib/mysql-data";;
+		V) nonginxvol=true;volflag=true;voldir=${PWD}/${OPTARG%/};datavol="-v$voldir-data:/var/lib/mysql-data";;
 		n) conname="--name ${OPTARG}";;
 		p) read -s -p "password:" password;pass="-ePASSWORD=$password ";;
 		i) image="${OPTARG}";;
 	esac
 done
-docker run -d $httpport $dbport $datavol $pass $conname $image
-echo "docker run -d $httpport $dbport $datavol $pass $conname $image"
+[[ -n $nonginxvol ]] && vol=$datavol ||	vol=$datavol" "$nginxvol;
+[[ -n $portflag && -n $volflag && -n $image ]] && docker run -d $httpport $dbport $vol $pass$conname $image || print_usage
