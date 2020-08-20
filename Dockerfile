@@ -37,7 +37,7 @@ ENV MYSQL_ROOT_PASS root
 ADD etc/nginx.conf /etc/nginx/nginx.conf
 ADD etc/default.conf /etc/nginx/conf.d/default.conf
 # Adding the configuration file of the mysql
-ADD etc/my.cnf /etc/mysql/my.cnf
+ADD etc/my.cnf /etc/my.cnf
 # Adding the configuration file of the php fpm
 ADD etc/php-fpm.conf /etc/php-fpm.conf
 
@@ -62,7 +62,7 @@ ADD etc/supervisord.conf /etc/
 ADD www /var/www
 
 # Add volumes for MySQL
-VOLUME  [ "/var/lib/mysql" ]
+VOLUME  [ "/var/lib/mysql-data" ]
 
 # Set the port to 80
 EXPOSE 80 3306
