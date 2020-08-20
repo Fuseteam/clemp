@@ -119,4 +119,4 @@ stopped containers can be started again with the following command
 <pre>docker start ##container-name</pre>
 
 a prebuild image of this configuration can be pulled with the following command
-<pre>docker pull fuseteam/docker</pre>
+<pre>docker pull fuseteam/lemp</pre>
