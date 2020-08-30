@@ -6,13 +6,16 @@
 
 RET=1
 while [[ RET -ne 0 ]]; do
-	echo "=> Waiting for confirmation of MySQL service startup"
-	sleep 10
-	mysql -uroot -e "status" > /dev/null 2>&1
-	RET=$?
+    echo "=> Waiting for confirmation of MySQL service startup"
+    sleep 10
+    mysql -uroot -p -e "status" > /dev/null 2>&1 ||
+        mysql -uroot -p${MYSQL_ROOT_PASS} -e "status" > /dev/null 2>&1
+    RET=$?
 done
-mysql -uroot -e "UPDATE mysql.user SET password=PASSWORD('${MYSQL_ROOT_PASS}') WHERE User='root'"
-mysql -uroot -e "CREATE USER 'root'@'gateway' IDENTIFIED BY '${MYSQL_ROOT_PASS}'"
-mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'gateway' WITH GRANT OPTION"
 
-mysqladmin -uroot shutdown
+mysql -uroot -e "UPDATE mysql.user SET password=PASSWORD('${MYSQL_ROOT_PASS}') WHERE User='root'" > /dev/null 2>&1
+mysql -uroot -e "CREATE USER 'root'@'gateway' IDENTIFIED BY '${MYSQL_ROOT_PASS}'" > /dev/null 2>&1
+mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'gateway' WITH GRANT OPTION" > /dev/null 2>&1
+
+mysqladmin -uroot shutdown > /dev/null 2>&1 ||
+    mysqladmin -uroot -p${MYSQL_ROOT_PASS} shutdown
