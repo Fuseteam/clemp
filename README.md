@@ -3,20 +3,20 @@ Original repo:https://github.com/kaushalkishorejaiswal/Docker-Centos-LEMP <br>
 Forked by Fuseteam <br>
 Email: fusekai@outlook.com <br>
 
-<h2>Dockerfile for creating docker image for LEMP (Linux-Centos, Nginx, MariaDB, PHP)</h2>
+<h2>Dockerfile for creating docker image for LEMP (Linux-Centos, Nginx mit PHP)</h2>
 
 <h4>Steps for creating image from the Docker-LEMP:</h4>
 
-<b>Step 1 :</b> Clone the Docker-Centos-LEMP.git
+<b>Step 1 :</b> Clone the clemp.git
 <pre>
 <b>Command: </b>
-git clone https://github.com/fuseteam/Docker-Centos-LEMP.git
+git clone https://github.com/fuseteam/clemp.git
 </pre>
 
 <b>Step 2 :</b> Change the directory to the clone folder
 <pre>
 <b>Command:</b>
-cd Docker-Centos-LEMP
+cd clemp
 </pre>
 
 <b>Step 3 :</b> Create the Docker Image
@@ -32,7 +32,7 @@ sudo docker build -t ##NAME_OF_YOUR_DOCKER_IMAGE## .
   c). . : (.) Symbols shows that your Dockerfile is available on the same directory where you are running the command.
 </pre>
 
-<b>Step 4 :</b> Create an Nginx,PHP,MariaDB Installed Container from the image
+<b>Step 4 :</b> Create an Nginx+PHP Installed Container from the image
 <b>Command Syntax: </b>
 sudo docker run --name [container name] -p [port to access (New Port):port exposed(original port)] -i -t [image name]
 <pre>
@@ -46,11 +46,6 @@ sudo docker run --name ##NAME_OF_YOUR_DOCKER_CONTAINER## -d -p 8082:80 -p3307:33
 http://127.0.0.1:8082/
 </pre>
 
-<b>Step 6 :</b> You can access your MariaDB using the below command.
-<pre>
-<b>Command:</b>
-mysql -uroot -proot -h172.17.42.1
-</pre>
 <b>Important Notes</b>
 <ul>
   <li>
@@ -119,4 +114,4 @@ stopped containers can be started again with the following command
 <pre>docker start ##container-name</pre>
 
 a prebuild image of this configuration can be pulled with the following command
-<pre>docker pull fuseteam/lemp</pre>
+<pre>docker pull fuseteam/clemp</pre>
