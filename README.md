@@ -115,3 +115,11 @@ stopped containers can be started again with the following command
 
 a prebuild image of this configuration can be pulled with the following command
 <pre>docker pull fuseteam/clemp</pre>
+
+<h4>Ngnix configuration</h4>
+the nginx in this image is tailored for a specific folder structure, the following are configured in Nginx:
+- the document root is at /var/www
+- the directory index is at /var/www/view/index.html or index.php
+- /var/www has been added to the php include_path
+- a rewrite rule that redirects any url of the form <base-url>/some-directory to <base-url>/controller/index.php
+- a rewrite rule that redirects any url of the form <base-url>/service/some.php to <base-url>/controller/index.php
