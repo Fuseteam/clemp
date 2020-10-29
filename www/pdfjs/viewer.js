@@ -3491,7 +3491,7 @@ const defaultOptions = {
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
   defaultUrl: {
-    value: "view/pdf.php",
+    value: "html/view/pdf.php",
     kind: OptionKind.VIEWER
   },
   defaultZoomValue: {
