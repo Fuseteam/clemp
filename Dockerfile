@@ -21,6 +21,9 @@ RUN yum -y install epel-release yum-utils
 RUN yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN yum -y --enablerepo=remi,remi-php73 install nginx php-fpm php-common
 RUN yum -y --enablerepo=remi,remi-php73 install php-cli php-pear php-pdo php-mysqlnd php-pgsql php-gd php-mbstring php-mcrypt php-xml php-intl
+RUN yum -y install unzip wget
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 # Installing supervisor
 RUN yum install -y python-setuptools
