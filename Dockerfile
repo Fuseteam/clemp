@@ -36,6 +36,7 @@ ADD etc/nginx.conf /etc/nginx/nginx.conf
 ADD etc/default.conf /etc/nginx/conf.d/default.conf
 # Adding the configuration file of the php fpm
 ADD etc/php-fpm.conf /etc/php-fpm.conf
+ADD etc/php.ini /etc/php.ini
 
 
 # Add MySQL utils
